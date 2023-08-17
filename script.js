@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDiv = document.getElementById('result');
     
     generateButton.addEventListener('click', function() {
-        const list1 = document.getElementById('Problems').value;
-        const list2 = document.getElementById('Solutions').value;
+        const list1 = document.getElementById('list1').value;
+        const list2 = document.getElementById('list2').value;
         
         const list1Array = list1.split('\n');
         const list2Array = list2.split('\n');
