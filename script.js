@@ -34,14 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     generateButton.addEventListener('click', function() {
-        const selectedProblem = problemSelect.value || customProblemInput.value;
-        const selectedSolution = solutionSelect.value || customSolutionInput.value;
+        const selectedProblems = getSelectedValues(problemSelect);
+        const selectedSolutions = getSelectedValues(solutionSelect);
         
-        if (!selectedProblem || !selectedSolution) {
-            resultDiv.textContent = 'Please select or enter both a problem and a solution.';
+        if (selectedProblems.length === 0 || selectedSolutions.length === 0) {
+            resultDiv.textContent = 'Please select at least one problem and one solution.';
             return;
         }
         
-        resultDiv.textContent = selectedProblem + ' - ' + selectedSolution;
+        const randomProblem = selectedProblems[Math.floor(Math.random() * selectedProblems.length)];
+        const randomSolution = selectedSolutions[Math.floor(Math.random() * selectedSolutions.length)];
+        
+        resultDiv.textContent = randomProblem + ' - ' + randomSolution;
     });
+
+    function getSelectedValues(selectElement) {
+        const selectedValues = [];
+        for (let i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].selected) {
+                selectedValues.push(selectElement.options[i].value);
+            }
+        }
+        return selectedValues;
+    }
 });
