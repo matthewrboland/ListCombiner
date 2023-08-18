@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const solutionCheckboxes = document.getElementById('solution-checkboxes');
     const customProblemInput = document.getElementById('custom-problem');
     const customSolutionInput = document.getElementById('custom-solution');
-    const addCustomProblemButton = document.getElementById('add-custom-problem');
-    const addCustomSolutionButton = document.getElementById('add-custom-solution');
+    const addCustomProblemsButton = document.getElementById('add-custom-problems');
+    const addCustomSolutionsButton = document.getElementById('add-custom-solutions');
+    const selectAllProblemsButton = document.getElementById('select-all-problems');
+    const selectAllSolutionsButton = document.getElementById('select-all-solutions');
     const resultDiv = document.getElementById('result');
 
     // Load problems from "problems.txt"
@@ -58,46 +60,24 @@ document.addEventListener('DOMContentLoaded', function() {
         resultDiv.textContent = randomProblem + ' - ' + randomSolution;
     });
 
-    addCustomProblemButton.addEventListener('click', function() {
-        const customProblem = customProblemInput.value.trim();
-        if (customProblem !== '') {
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.value = customProblem;
-            checkbox.id = customProblem;
-            checkbox.checked = true;
-            
-            const label = document.createElement('label');
-            label.textContent = customProblem;
-            label.setAttribute('for', customProblem);
-            
-            problemCheckboxes.appendChild(checkbox);
-            problemCheckboxes.appendChild(label);
-            problemCheckboxes.appendChild(document.createElement('br'));
-            
-            customProblemInput.value = '';
-        }
+    addCustomProblemsButton.addEventListener('click', function() {
+        const customProblems = customProblemInput.value.trim().split('\n');
+        populateCheckboxes(problemCheckboxes, customProblems);
+        customProblemInput.value = '';
     });
 
-    addCustomSolutionButton.addEventListener('click', function() {
-        const customSolution = customSolutionInput.value.trim();
-        if (customSolution !== '') {
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.value = customSolution;
-            checkbox.id = customSolution;
-            checkbox.checked = true;
-            
-            const label = document.createElement('label');
-            label.textContent = customSolution;
-            label.setAttribute('for', customSolution);
-            
-            solutionCheckboxes.appendChild(checkbox);
-            solutionCheckboxes.appendChild(label);
-            solutionCheckboxes.appendChild(document.createElement('br'));
-            
-            customSolutionInput.value = '';
-        }
+    addCustomSolutionsButton.addEventListener('click', function() {
+        const customSolutions = customSolutionInput.value.trim().split('\n');
+        populateCheckboxes(solutionCheckboxes, customSolutions);
+        customSolutionInput.value = '';
+    });
+
+    selectAllProblemsButton.addEventListener('click', function() {
+        selectAllCheckboxes(problemCheckboxes);
+    });
+
+    selectAllSolutionsButton.addEventListener('click', function() {
+        selectAllCheckboxes(solutionCheckboxes);
     });
 
     function getSelectedValues(checkboxesContainer) {
@@ -109,5 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         return selectedValues;
+    }
+
+    function selectAllCheckboxes(checkboxesContainer) {
+        const checkboxes = checkboxesContainer.querySelectorAll('input[type="checkbox"]');
+        for (const checkbox of checkboxes) {
+            checkbox.checked = true;
+        }
     }
 });
