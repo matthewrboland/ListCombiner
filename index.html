@@ -8,17 +8,15 @@
 <body>
     <h1>Random Combination Generator</h1>
     <form id="input-form">
-        <label for="problem-select">Select or Enter a Problem:</label>
-        <select id="problem-select">
-            <option value="">Select a Problem</option>
-        </select>
-        <input type="text" id="custom-problem" placeholder="Enter Custom Problem"><br>
+        <label for="problem-checkboxes">Select or Enter Problems:</label><br>
+        <div id="problem-checkboxes"></div>
+        <input type="text" id="custom-problem" placeholder="Enter Custom Problem">
+        <button type="button" id="add-custom-problem">Add</button><br>
         
-        <label for="solution-select">Select or Enter a Solution:</label>
-        <select id="solution-select">
-            <option value="">Select a Solution</option>
-        </select>
-        <input type="text" id="custom-solution" placeholder="Enter Custom Solution"><br>
+        <label for="solution-checkboxes">Select or Enter Solutions:</label><br>
+        <div id="solution-checkboxes"></div>
+        <input type="text" id="custom-solution" placeholder="Enter Custom Solution">
+        <button type="button" id="add-custom-solution">Add</button><br>
         
         <button type="button" id="generate-btn">Generate Random Combination</button>
     </form>
