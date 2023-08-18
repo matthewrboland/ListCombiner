@@ -68,6 +68,15 @@ button:hover {
 #result {
     text-align: center;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 24px; /* Adjust font size as needed */
     color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Position the "Generate Random Combination" button */
+#generate-btn {
+    display: block;
+    margin: 20px auto;
 }
