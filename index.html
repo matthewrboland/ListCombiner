@@ -8,22 +8,22 @@
 <body>
     <h1>Random Combination Generator</h1>
     <form id="input-form">
-        <div class="list-container">
-            <label for="problem-checkboxes">Problems:</label>
-            <div id="problem-checkboxes" class="checkbox-list"></div>
-            <textarea id="custom-problem" placeholder="Enter Custom Problems" rows="4"></textarea>
-            <button type="button" id="add-custom-problems">Add Custom Problems</button>
-            <button type="button" id="select-all-problems">Select All Problems</button>
+        <div class="lists-container">
+            <div class="list-container">
+                <label for="problem-checkboxes">Problems:</label>
+                <div id="problem-checkboxes" class="checkbox-list"></div>
+                <textarea id="custom-problem" placeholder="Enter Custom Problems" rows="4"></textarea>
+                <button type="button" id="add-custom-problems">Add Custom Problems</button>
+                <button type="button" id="select-all-problems">Select All Problems</button>
+            </div>
+            <div class="list-container">
+                <label for="solution-checkboxes">Solutions:</label>
+                <div id="solution-checkboxes" class="checkbox-list"></div>
+                <textarea id="custom-solution" placeholder="Enter Custom Solutions" rows="4"></textarea>
+                <button type="button" id="add-custom-solutions">Add Custom Solutions</button>
+                <button type="button" id="select-all-solutions">Select All Solutions</button>
+            </div>
         </div>
-        
-        <div class="list-container">
-            <label for="solution-checkboxes">Solutions:</label>
-            <div id="solution-checkboxes" class="checkbox-list"></div>
-            <textarea id="custom-solution" placeholder="Enter Custom Solutions" rows="4"></textarea>
-            <button type="button" id="add-custom-solutions">Add Custom Solutions</button>
-            <button type="button" id="select-all-solutions">Select All Solutions</button>
-        </div>
-        
         <button type="button" id="generate-btn">Generate Random Combination</button>
     </form>
     <div id="result"></div>
