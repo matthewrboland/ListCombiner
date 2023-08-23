@@ -75,8 +75,9 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Position the "Generate Random Combination" button */
-#generate-btn {
+/* Center the "Generate Random Combination" button and result display */
+#generate-btn, #result {
+    margin: 0 auto;
     display: block;
-    margin: 20px auto;
+    text-align: center;
 }
